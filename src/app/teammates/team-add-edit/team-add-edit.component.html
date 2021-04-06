@@ -1,0 +1,40 @@
+<div class="d-flex flex-row bd-highlight mb-3">
+    <!-- Teammate details -->
+    <div class="form-froup row" style="width: 60%;">
+        <label class="col-sm-2 col-form-label">Teammate Name</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" [(ngModel)]="TeammateName" placeholder="Enter a name...">
+        </div>
+
+        <label class="col-sm-2 col-form-label">Department</label>
+        <div class="col-sm-10">
+            <select class="form-control" [(ngModel)]="Department">
+                <option>
+                    Select
+                </option>
+                <option *ngFor="let department of DepartmentsList">
+                    {{department.DepartmentName}}
+                </option>
+            </select>
+        </div>
+
+        <label class="col-sm-2 col-form-label">Join Date</label>
+        <div class="col-sm-10">
+            <input type="date" [(ngModel)]="JoinDate">
+        </div>
+    </div>
+
+    <!-- Teammate profile pic -->
+    <div class="ml-3 bd-highlight" style="width: 40%;">
+        <img [src]="ProfilePicPath" height="250px;" width="250px;">
+        <input type="file" (change)="uploadProfilePic($event)" class="mt-2" />
+    </div>
+</div>
+
+<button (click)="addTeammate()" *ngIf="teammate.TeammateId==0" class="btn btn-primary">
+    Add
+</button>
+
+<button (click)="editTeammate()" *ngIf="teammate.TeammateId!=0" class="btn btn-primary">
+    Update
+</button>
