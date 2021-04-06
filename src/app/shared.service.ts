@@ -6,8 +6,10 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class SharedService {
-  readonly APIUrl = "http://127.0.0.1:8000";
-  readonly ProfilePicUrl = "http://127.0.0.1:8000/media/"
+  readonly APIUrl = "https://teamerwebapp.herokuapp.com";
+  // readonly ProfilePicUrl = "http://127.0.0.1:8000/media/"
+  readonly ProfilePicUrl = "https://teamer.s3-us-west-1.amazonaws.com/"
+  
 
   constructor(private http:HttpClient) { }
 
